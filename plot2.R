@@ -10,5 +10,7 @@ d<-d[d$Date=="1/2/2007"|d$Date=="2/2/2007",]
 d$datetime <- paste(d$Date, d$Time)
 d$posixDate <- strptime(d$datetime, "%d/%m/%Y %H:%M:%S")
 
-##plot2:
+##Create plot2 and save it as a png file:
+png(filename="plot2.png")
 plot(d$posixDate,d$Global_active_power,type="l",xlab="",ylab="Global Active Power (kilowatts)")
+dev.off()

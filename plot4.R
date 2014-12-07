@@ -10,7 +10,8 @@ d<-d[d$Date=="1/2/2007"|d$Date=="2/2/2007",]
 d$datetime <- paste(d$Date, d$Time)
 d$posixDate <- strptime(d$datetime, "%d/%m/%Y %H:%M:%S")
 
-##plot4:
+##Create plot4 and save it as a png file:
+png(filename="plot4.png")
 par(mfrow=c(2,2),mai = c(1, 1, 0.1, 0.1))
 with(d,{
   plot(posixDate,Global_active_power,type="l",xlab="",ylab="Global Active Power",cex.lab=0.6)
@@ -23,3 +24,4 @@ with(d,{
   })
   plot(posixDate,Global_reactive_power,type="l",xlab="datetime",ylab="Global_reactive_power",cex.lab=0.6)
 })
+dev.off()

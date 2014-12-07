@@ -10,5 +10,7 @@ d<-d[d$Date=="1/2/2007"|d$Date=="2/2/2007",]
 d$datetime <- paste(d$Date, d$Time)
 d$posixDate <- strptime(d$datetime, "%d/%m/%Y %H:%M:%S")
 
-##plot1:
+##Create plot1 and save it as a png file:
+png(filename="plot1.png")
 hist(d$Global_active_power,xlab="Global Active Power (kilowatts)",col="red",main="Global Active Power")
+dev.off()
